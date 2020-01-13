@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 
 class Toppg extends Component {
     render() {
@@ -11,7 +12,7 @@ class Toppg extends Component {
   <div className="card-body">
     <h5 className="card-title">Jai Pur</h5>
     <p className="card-text">9, Jain Mandir Marg, Ganesh Colony, New Colony, Jhotwara, Jaipur, Jaipur, Rajasthan 302012</p>
-    <a href="#" className="btn btn-primary">Explore</a>
+    <Link to="/" href="#" className="btn btn-primary">Explore</Link>
   </div>
 </div>
 
@@ -20,7 +21,7 @@ class Toppg extends Component {
   <div className="card-body">
     <h5 className="card-title">Delhi</h5>
     <p className="card-text">Sangatrashan paharganj, Mantola Mohalla, Aram Bagh, Paharganj, New Delhi, Delhi 110055</p>
-    <a href="#" className="btn btn-primary">Explore</a>
+    <Link to="/" href="#" className="btn btn-primary">Explore</Link>
   </div>
 </div>
 
@@ -29,7 +30,7 @@ class Toppg extends Component {
   <div className="card-body">
     <h5 className="card-title">Mumbai</h5>
     <p className="card-text">109/20, RSC Rd Number 21, Charkop, Sector 1, Sector 1 Charkop, Kandivali, Mumbai, Maharashtra 400067</p>
-    <a href="#" className="btn btn-primary">Explore</a>
+    <Link to="/" href="#" className="btn btn-primary">Explore</Link>
   </div>
 </div>
 </div>

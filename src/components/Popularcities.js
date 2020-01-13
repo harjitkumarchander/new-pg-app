@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 
 class Popularcities extends Component {
     render() {
@@ -11,7 +12,7 @@ class Popularcities extends Component {
   <div className="card-body">
     <h5 className="card-title">Jai Pur</h5>
     <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" className="btn btn-primary">Explore</a>
+    <Link to="/" href="#" className="btn btn-primary">Explore</Link>
   </div>
 </div>
 
@@ -20,7 +21,7 @@ class Popularcities extends Component {
   <div className="card-body">
     <h5 className="card-title">Delhi</h5>
     <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" className="btn btn-primary">Explore</a>
+    <Link to="/" href="#" className="btn btn-primary">Explore</Link>
   </div>
 </div>
 
@@ -29,7 +30,7 @@ class Popularcities extends Component {
   <div className="card-body">
     <h5 className="card-title">Mumbai</h5>
     <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" className="btn btn-primary">Explore</a>
+    <Link to="/" href="#" className="btn btn-primary">Explore</Link>
   </div>
 </div>
 
@@ -38,7 +39,7 @@ class Popularcities extends Component {
   <div className="card-body">
     <h5 className="card-title">Kolkata</h5>
     <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" className="btn btn-primary">Explore</a>
+    <Link to="/" href="#" className="btn btn-primary">Explore</Link>
   </div>
 </div>
 

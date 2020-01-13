@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class Services extends Component {
     render() {
@@ -13,34 +13,34 @@ class Services extends Component {
 								<li className="list-unstyled">
                                     <div className="row m-auto text-center">
 									<div className="col-md-3 biseller-column">
-										<a>
+										<Link to="/">
 											<img style={{height: "50px", width: "50px"}} src={require("../images/wifi.jpg")} alt="" />
-										</a> 
+										</Link> 
 										<div className="card-body w3-ad-info">
 											<h5>High Speed Internet</h5>
 										</div>
 									</div>
 									<div className="col-md-3 biseller-column">
-										<a>
+										<Link to="/">
 											<img style={{height: "50px", width: "50px"}} src={require("../images/breakfast.jpeg")} alt="" />
-										</a> 
-										<div className="w3-ad-info">
+										</Link> 
+										<div className="card-body w3-ad-info">
 											<h5>Breakfast</h5>
 										</div>
 									</div>
 									<div className="col-md-3 biseller-column">
-										<a>
+										<Link to="/">
 											<img style={{height: "50px", width: "50px"}} src={require("../images/security.jpeg")} alt="" />
-										</a> 
-										<div className="w3-ad-info">
+										</Link> 
+										<div className="card-body w3-ad-info">
 											<h5>24x7 Security</h5>
 										</div>
 									</div>
 									<div className="col-md-3 biseller-column">
-										<a>
+										<Link to="/">
 											<img style={{height: "50px", width: "50px"}} src={require("../images/cleaning.png")} alt="" />
-										</a> 
-										<div className="w3-ad-info">
+										</Link> 
+										<div className="card-body w3-ad-info">
 											<h5>Regular Cleaning</h5>
 										</div>
 									</div>
@@ -50,34 +50,34 @@ class Services extends Component {
 								<li className="list-unstyled">
 								<div className="row m-auto text-center">
 									<div className="col-md-3 biseller-column">
-										<a>
+										<Link to="/">
 											<img style={{height: "50px", width: "50px"}} src={require("../images/power.png")} alt="" />
-										</a> 
-										<div className="w3-ad-info">
+										</Link> 
+										<div className="card-body w3-ad-info">
 											<h5>24x7 Power Backup</h5>
 										</div>
 									</div>
 									<div className="col-md-3 biseller-column">
-										<a>
+										<Link to="/">
 											<img style={{height: "50px", width: "50px"}} src={require("../images/parking.jpeg")} alt="" />
-										</a> 
-										<div className="w3-ad-info">
+										</Link> 
+										<div className="card-body w3-ad-info">
 											<h5>2-Wheeler Parking</h5>
 										</div>
 									</div>
 									<div className="col-md-3 biseller-column">
-										<a>
+										<Link to="/">
 											<img style={{height: "50px", width: "50px"}} src={require("../images/furnished.png")} alt="" />
-										</a> 
-										<div className="w3-ad-info">
+										</Link> 
+										<div className="card-body w3-ad-info">
 											<h5>Fully Furnished</h5>
 										</div>
 									</div>
 									<div className="col-md-3 biseller-column">
-										<a>
+										<Link to="/">
 											<img style={{height: "50px", width: "50px"}} src={require("../images/laundry.jpeg")} alt="" />
-										</a> 
-										<div className="w3-ad-info">
+										</Link> 
+										<div className="card-body w3-ad-info">
 											<h5>Laundry</h5>
 										</div>
 									</div> 
