@@ -9,44 +9,41 @@ class PhotoSearch extends Component {
         }
     }
     componentDidMount(){
-        fetch('https://randomuser.me/api/?results=50')
-        .then(res =>res.json())
-        .then(res => {
-            console.log(res);
+        fetch('https://randomuser.me/api/?results=5')
+        .then(res => res.json())
+        .then(result => {
+            console.log(result);
             this.setState({
-                user : res.results,
-                user2 : res.results
+                user : result.results,
+                user2 : result.results
             })
         })
     }
 
-    searchPhoto = (e) => {
-        console.log(e.target.value);
+    handleInput = (e) => {
         let user2 = [];
         for(const obj of this.state.user){
             let gender = obj.gender;
-            let title = obj.name.title;
-            if(e.target.value.toLowerCase() === gender.substring(0, e.target.value.length).toLowerCase()||
-              (e.target.value.toLowerCase() === title.substring(0, e.target.value.length).toLowerCase())
-            )
+            if(e.target.value === gender.substring(0, e.target.value.length))
             {
-                user2.push(obj);
+                user2.push(obj)
             }
             console.log(obj);
-        }this.setState({
+        }
+        this.setState({
             user2
         })
     }
     render() {
         return (
             <div>
-                <label>Search photo by Gender or Title</label>
-                <input type="text" onChange={this.searchPhoto} />
+                <label>Search Photo by Gender</label>
+                <input type="text" onChange={this.handleInput} />
                 {
                     this.state.user2.map((v,i)=>{
                         return(
                             <ul key={i}>
-                    <li style={{float : "left", listStyle : "none"}}><img src={v.picture.large} alt="oolala" /></li>
+                    <li style={{float : "left"}}>{v.name.title}<img src={v.picture.large} alt="oolala" /></li>
                             </ul>
                         );
                     })
@@ -56,4 +53,4 @@ class PhotoSearch extends Component {
     }
 }
 
-export default PhotoSearch;
+export default PhotoSearch

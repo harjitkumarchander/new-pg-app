@@ -18,10 +18,10 @@ class Topbar extends Component {
         <Link to="/" className="nav-link text-white mr-3" href="#"><i className="fa fa-home mr-1" aria-hidden="true"></i>Home<span className="sr-only">(current)</span></Link>
       </li>
       <li className="nav-item active">
-        <Link to="/" className="nav-link text-white mr-3" href="#"><i className="fa fa-user mr-1" aria-hidden="true"></i>Complaint<span className="sr-only">(current)</span></Link>
+        <Link to="/complaint" className="nav-link text-white mr-3" href="#"><i className="fa fa-user mr-1" aria-hidden="true"></i>Complaint<span className="sr-only">(current)</span></Link>
       </li>
       <li className="nav-item active">
-        <Link to="/" className="nav-link text-white mr-3" href="#"><i className="fa fa-phone mr-1" aria-hidden="true"></i>Contact Us<span className="sr-only">(current)</span></Link>
+        <Link to="/contactus" className="nav-link text-white mr-3" href="#"><i className="fa fa-phone mr-1" aria-hidden="true"></i>Contact Us<span className="sr-only">(current)</span></Link>
       </li>
       <li className="nav-item active">
         <Link to="/postpgdetail1" className="nav-link text-danger mr-3" href="#"><i className="fa fa-building mr-1" aria-hidden="true"></i><strong>List Your PG Now</strong><span className="sr-only">(current)</span></Link>

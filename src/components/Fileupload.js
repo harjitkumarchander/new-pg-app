@@ -17,7 +17,7 @@ export class Fileupload extends Component {
         let fd = new FormData();
         fd.append('image', this.state.img);
         fd.append('username', this.state.username);
-        fetch('',{
+        fetch('----URL----',{
             method: 'P0ST',
             headers: {
                 'Content-Type':'multipart/form-data'
@@ -39,4 +39,4 @@ export class Fileupload extends Component {
         )
     }
 }
-export default Fileupload
+export default Fileupload;  

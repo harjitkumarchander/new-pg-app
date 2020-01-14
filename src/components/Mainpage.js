@@ -8,6 +8,7 @@ import Services from './Services';
 import Coments from './Coments';
 import Footer from './Footer';
 import Toppg from './Toppg';
+import WhyUse from './WhyUse';
 
 class Mainpage extends Component {
     render() {
@@ -26,6 +27,9 @@ class Mainpage extends Component {
                 <h1 className="text-center pt-5">Popular Cities</h1>
                 <hr className="w-25 mx-auto pt-25 " />
                 <Popularcities />
+                <h1 className="text-center pt-5">Why use Perfact PG</h1>
+                <hr className="w-25 mx-auto pt-25 " />
+                <WhyUse />
                 <h1 className="text-center pt-5">Comments</h1>
                 <hr className="w-25 mx-auto pt-25 " />
                 <Coments />
