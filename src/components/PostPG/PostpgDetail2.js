@@ -24,12 +24,12 @@ export class PostpgDetail2 extends Component {
         return (
             <>
             <Topbar />
-            <div style={{borderRadius : "15px", height : "447px"}} className="container bg-secondary mt-5 mb-5 postpgdetail1">
+            <div style={{borderRadius : "15px", height : "447px"}} className="container mt-5 mb-5 postpgdetail1">
                 <h2 className="text-center">Post PG</h2>
                 <form>
                     <div className="form-group">
 					<label>State<span>*</span></label>
-					    <select className="form-control" name="state" onChange={this.handleChange} required="">
+					    <select style={{height : "70px"}} className="form-control" name="state" onChange={this.handleChange} required="">
 					        <option>Select State</option>
 					        <option>Punjab</option>
 					        <option>Rajasthan</option>
@@ -38,7 +38,7 @@ export class PostpgDetail2 extends Component {
                     </div>
                     <div className="form-group">
 					<label>City<span>*</span></label>
-					    <select className="form-control" name="city" onChange={this.handleChange} required="">
+					    <select style={{height : "70px"}} className="form-control" name="city" onChange={this.handleChange} required="">
 					        <option>Select City</option>
 					        <option>Jalandhar</option>
 					        <option>Kapurthla</option>
@@ -47,7 +47,7 @@ export class PostpgDetail2 extends Component {
                     </div>
                     <div className="form-group">
                     <label>Full Address<span>*</span></label>
-                        <input type="text" className="form-control" name="full_address" onChange={this.handleChange} placeholder="Type your full address" required="" />
+                        <input style={{height : "70px"}} type="text" className="form-control" name="full_address" onChange={this.handleChange} placeholder="Type your full address" required="" />
                     </div>
                     <Link to="/postpgdetail1"><Button className="continue_btn float-left" variant="primary" >Back</Button></Link>
                     <Link to="/postpgdetail3"><Button className="continue_btn float-right" variant="primary" >Continue</Button></Link>

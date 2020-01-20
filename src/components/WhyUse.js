@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export class WhyUse extends Component {
     render() {
         return (
-            <div style={{fontFamily:"Alfa Slab One"}} className="container p-0">
+            <div style={{fontFamily:"Alfa Slab One"}} className="container p-0 why_use_container">
 
 <div className="row m-auto text-center">
 <div className=" col-lg-3 col-md-3 col-12" style={{width : "18rem"}}>

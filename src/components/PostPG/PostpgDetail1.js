@@ -24,12 +24,12 @@ class PostpgDetail1 extends Component {
         return (
             <>
             <Topbar />
-            <div style={{borderRadius : "15px", height : "447px"}} className="container bg-secondary mt-5 mb-5 postpgdetail1">
+            <div style={{borderRadius : "15px", height : "447px"}} className="container mt-5 mb-5 postpgdetail1">
                 <h2 className="text-center">Post PG</h2>
                 <form>
                     <div className="form-group">
 					<label>Select Properties<span>*</span></label>
-					    <select className="form-control" name="pg_category" onChange={this.handleChange} required="">
+					    <select style={{height : "70px"}} className="form-control" name="pg_category" onChange={this.handleChange} required="">
 					        <option>Select PG Category</option>
 					        <option>Only 1</option>
 					        <option>2 to 4</option>
@@ -38,7 +38,7 @@ class PostpgDetail1 extends Component {
                     </div>
                     <div className="form-group">
 					<label>Price<span>*</span></label>
-					    <select className="form-control" name="pg_category" onChange={this.handleChange} required="">
+					    <select style={{height : "70px"}} className="form-control" name="pg_category" onChange={this.handleChange} required="">
 					        <option>Select Price</option>
 					        <option>1000 to 2000</option>
 					        <option>2000 to 4000</option>
@@ -47,7 +47,7 @@ class PostpgDetail1 extends Component {
                     </div>
                     <div className="form-group">
                     <label>Description<span>*</span></label>
-                        <textarea className="form-control" type="text" placeholder="Description" name="description" onChange={this.handleChange} required="" /><br />
+                        <textarea style={{height : "70px"}} className="form-control" type="text" placeholder="Description" name="description" onChange={this.handleChange} required="" /><br />
                     </div>
                         <Link to="/postpgdetail2"><Button className="continue_btn" variant="primary">Continue</Button></Link>
                     

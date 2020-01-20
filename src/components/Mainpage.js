@@ -17,9 +17,12 @@ class Mainpage extends Component {
                 <div className="main_container">
                 </div>
                 <Topbar />
-                <hr className="pt-1" />
+                {/* <hr className="pt-1" /> */}
+                <br />
+                <br />
                 <Search />
-                <hr className=""/>
+                <br /><br />
+                {/* <hr className=""/> */}
                 <Slider />
                 <h1 className="text-center pt-5">Top Most PG in Jalandhar</h1>
                 <hr className="w-25 mx-auto pt-25 " />

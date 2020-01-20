@@ -48,27 +48,27 @@ class Postpgdetail3 extends Component {
         return (
             <>
             <Topbar />
-            <div style={{borderRadius : "15px", height : "447px"}} className="container bg-secondary mt-5 mb-5 postpgdetail1">
+            <div style={{borderRadius : "15px", height : "auto"}} className="container mt-5 mb-5 postpgdetail1">
                 <h2 className="text-center">Personal Details</h2>
                 <form>
                 <div className="form-group">
                     <label>Name<span>*</span></label>
-                        <input type="text" className="form-control" name="name" onChange={this.handleChange} placeholder="Type your full Name" required="" />
+                        <input style={{height : "70px"}} type="text" className="form-control" name="name" onChange={this.handleChange} placeholder="Type your full Name" required="" />
                 </div>
                 <div className="form-group">
                     <label>Email<span>*</span></label>
-                        <input type="text" className="form-control" name="email" onChange={this.handleChange} placeholder="Enter Your Email address" required=""/>
+                        <input style={{height : "70px"}} type="text" className="form-control" name="email" onChange={this.handleChange} placeholder="Enter Your Email address" required=""/>
                 </div>
                 <div className="form-group">
                     <label>Phone<span>*</span></label>
-                        <input type="text" className="form-control" name="phone" onChange={this.handleChange} placeholder="Enter Your Phone Number" required="" />
+                        <input style={{height : "70px"}} type="text" className="form-control" name="phone" onChange={this.handleChange} placeholder="Enter Your Phone Number" required="" />
                 </div>
                 <div className="form-group">
                     <label>Photos<span>*</span></label>
-                        <input multiple type="file" className="form-control-file" onChange={this.handleInputImage} placeholder="Enter Your Phone Number" required=""/>
+                        <input style={{height : "70px"}} multiple type="file" className="form-control-file" onChange={this.handleInputImage} placeholder="Enter Your Phone Number" required=""/>
                 </div>
-                <Link to="/postpgdetail2"><Button className="continue_btn float-left" variant="primary">Back</Button></Link>
-                <Link to="/"><Button onClick={this.uploadData} className="continue_btn float-right" variant="primary" >Submit</Button></Link>
+                <Link to="/postpgdetail2"><Button style={{marginTop : "-30px"}} className="continue_btn float-left" variant="primary">Back</Button></Link>
+                <Button style={{marginTop : "-30px"}} onClick={this.uploadData} className="continue_btn float-right" variant="primary" >Submit</Button>
                 </form>
                 
             </div>

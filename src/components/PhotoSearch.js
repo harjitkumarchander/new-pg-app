@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class PhotoSearch extends Component {
+export class PhotoSearch extends Component {
     constructor(){
         super();
         this.state = {
@@ -8,11 +8,12 @@ class PhotoSearch extends Component {
             user2 : []
         }
     }
+
     componentDidMount(){
         fetch('https://randomuser.me/api/?results=5')
         .then(res => res.json())
         .then(result => {
-            console.log(result);
+            console.log(result.msg);
             this.setState({
                 user : result.results,
                 user2 : result.results
@@ -21,11 +22,11 @@ class PhotoSearch extends Component {
     }
 
     handleInput = (e) => {
+        console.log(e)
         let user2 = [];
         for(const obj of this.state.user){
             let gender = obj.gender;
-            if(e.target.value === gender.substring(0, e.target.value.length))
-            {
+            if(e.target.value === gender.substring(0, e.target.value.length)){
                 user2.push(obj)
             }
             console.log(obj);
@@ -37,13 +38,13 @@ class PhotoSearch extends Component {
     render() {
         return (
             <div>
-                <label>Search Photo by Gender</label>
+                <label>Search Photo by gender from API</label>
                 <input type="text" onChange={this.handleInput} />
                 {
                     this.state.user2.map((v,i)=>{
                         return(
                             <ul key={i}>
-                    <li style={{float : "left"}}>{v.name.title}<img src={v.picture.large} alt="oolala" /></li>
+                    <li>{v.name.title}<img src={v.picture.large} alt="oolala" /></li>
                             </ul>
                         );
                     })
