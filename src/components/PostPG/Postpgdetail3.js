@@ -53,19 +53,19 @@ class Postpgdetail3 extends Component {
                 <form>
                 <div className="form-group">
                     <label>Name<span>*</span></label>
-                        <input style={{height : "70px"}} type="text" className="form-control" name="name" onChange={this.handleChange} placeholder="Type your full Name" required="" />
+                        <input style={{height : "70px"}} type="text" className="form-control" name="name" value={this.state.name} onChange={this.handleChange} placeholder="Type your full Name" required="" />
                 </div>
                 <div className="form-group">
                     <label>Email<span>*</span></label>
-                        <input style={{height : "70px"}} type="text" className="form-control" name="email" onChange={this.handleChange} placeholder="Enter Your Email address" required=""/>
+                        <input style={{height : "70px"}} type="text" className="form-control" name="email" value={this.state.email} onChange={this.handleChange} placeholder="Enter Your Email address" required=""/>
                 </div>
                 <div className="form-group">
                     <label>Phone<span>*</span></label>
-                        <input style={{height : "70px"}} type="text" className="form-control" name="phone" onChange={this.handleChange} placeholder="Enter Your Phone Number" required="" />
+                        <input style={{height : "70px"}} type="text" className="form-control" name="phone" value={this.state.phone} onChange={this.handleChange} placeholder="Enter Your Phone Number" required="" />
                 </div>
                 <div className="form-group">
                     <label>Photos<span>*</span></label>
-                        <input style={{height : "70px"}} multiple type="file" className="form-control-file" onChange={this.handleInputImage} placeholder="Enter Your Phone Number" required=""/>
+                        <input style={{height : "70px"}} multiple type="file" className="form-control-file" name="photos" value={this.state.photos} onChange={this.handleInputImage} placeholder="Enter Your Phone Number" required=""/>
                 </div>
                 <Link to="/postpgdetail2"><Button style={{marginTop : "-30px"}} className="continue_btn float-left" variant="primary">Back</Button></Link>
                 <Button style={{marginTop : "-30px"}} onClick={this.uploadData} className="continue_btn float-right" variant="primary" >Submit</Button>

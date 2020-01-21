@@ -38,7 +38,7 @@ class PostpgDetail1 extends Component {
                     </div>
                     <div className="form-group">
 					<label>Price<span>*</span></label>
-					    <select style={{height : "70px"}} className="form-control" name="pg_category" onChange={this.handleChange} required="">
+					    <select style={{height : "70px"}} className="form-control" name="pg_category" value={this.state.price} onChange={this.handleChange} required="">
 					        <option>Select Price</option>
 					        <option>1000 to 2000</option>
 					        <option>2000 to 4000</option>
