@@ -9,6 +9,7 @@ import Coments from './Coments';
 import Footer from './Footer';
 import Toppg from './Toppg';
 import WhyUse from './WhyUse';
+import ChatBox from './ChatBox';
 
 class Mainpage extends Component {
     render() {
@@ -36,10 +37,12 @@ class Mainpage extends Component {
                 <h1 className="text-center pt-5">Comments</h1>
                 <hr className="w-25 mx-auto pt-25 " />
                 <Coments />
+
+                
                 <h1 className="text-center pt-5">Services</h1>
                 <hr className="w-25 mx-auto pt-25 " />
                 <Services />
-
+                {/* <ChatBox /> */}
                 <Footer />
             </div>
         )

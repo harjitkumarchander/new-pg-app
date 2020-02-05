@@ -23,7 +23,7 @@ class Topbar extends Component {
                           <Link to="/contactus" className="nav-link text-white mr-3" href="#"><i className="fa fa-phone mr-1" aria-hidden="true"></i>Contact Us<span className="sr-only">(current)</span></Link>
                         </li>
                         <li className="nav-item active">
-                          <Link to="/postpgdetail1" className="nav-link text-danger mr-3" href="#"><i className="fa fa-building mr-1" aria-hidden="true"></i><strong>List Your PG Now</strong><span className="sr-only">(current)</span></Link>
+                          <Link to="/postpg" className="nav-link text-danger mr-3" href="#"><i className="fa fa-building mr-1" aria-hidden="true"></i><strong>List Your PG Now</strong><span className="sr-only">(current)</span></Link>
                         </li>
                         <li className="nav-item active">
                           <Link to="/login" className="nav-link text-white mr-3" href="#"><i className="fa fa-user mr-1" aria-hidden="true"></i>Login <span className="sr-only">(current)</span></Link>

@@ -1,77 +1,127 @@
-import React from "react";
-import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBInput } from "mdbreact";
+import React, { Component } from 'react';
+import { Button } from 'react-bootstrap';
+import Topbar from './Topbar';
+import Footer from './Footer';
 
-class Postpg extends React.Component {
-
-state = {
-  formActivePanel1: 1,
-  formActivePanel1Changed: false,
+class Postpg extends Component {
+  constructor(){
+    super();
+    this.state = {
+        description : '',
+        pg_category : '',
+        price : '',
+        state : '',
+        city : '',
+        full_address : '',
+        name : '',
+        email : '',
+        phone : '',
+        photos : ''
+    }
 }
 
-handleNextPrevClick = (a) => (param) => (e) => {
-  this.setState({
-    ['formActivePanel' + a]: param,
-    ['formActivePanel' + a + 'Changed']: true
-  });
+handleChange = (e) => {
+    this.setState({
+        [e.target.name] : e.target.value
+    })
+    console.log(e.target.value)
 }
 
-handleSubmission = () => {
-  alert('Form submitted!');
+handleInputImage = (e) => {
+  console.log(e.target.files[0].name)
+  // this.setState({
+  //     photos : e.target.files[0].name
+  // })
 }
 
-calculateAutofocus = (a) => {
-  if (this.state['formActivePanel' + a + 'Changed']) {
-    return true
+uploadData = () => {
+  let fd = new FormData();
+  fd.append('state', this.state.state);
+  fd.append('city', this.state.city);
+  fd.append('address', this.state.address);
+  fd.append('name', this.state.name);
+  fd.append('email', this.state.email);
+  fd.append('price', this.state.price);
+  fd.append('phone', this.state.phone);
+  fd.append('photos', this.state.photos);
+  // console.log(fd);
+
+  fetch('http://whispering-refuge-34674.herokuapp.com/api/pg',{
+      method : 'POST',
+      headers : {
+          'Content-Type' : 'multipart/form-data'
+      },
+      body : JSON.stringify(fd)
+  })
+  .then(res => res.json())
+  .then(res => console.log(res))
+  .catch((err) => {
+      console.log(err);
+  })
+}
+
+  render() {
+    return (
+      <>
+            <Topbar />
+            <div style={{borderRadius : "15px", height : "auto"}} className="container mt-5 mb-5 postpgdetail1">
+                <h2 className="text-center">Post PG</h2>
+                <form>
+                    <div className="form-group">
+					<label>State<span>*</span></label>
+					    <select style={{height : "70px"}} className="form-control" name="state" value={this.state.state} onChange={this.handleChange} required="">
+					        <option>Select State</option>
+					        <option>Punjab</option>
+					        <option>Rajasthan</option>
+					        <option>Hareyna</option>
+					    </select>
+                    </div>
+                    <div className="form-group">
+					<label>City<span>*</span></label>
+					    <select style={{height : "70px"}} className="form-control" name="city" value={this.state.city} onChange={this.handleChange} required="">
+					        <option>Select City</option>
+					        <option>Jalandhar</option>
+					        <option>Kapurthla</option>
+					        <option>Amritsar</option>
+					    </select>
+                    </div>
+                    <div className="form-group">
+                    <label>Address<span>*</span></label>
+                        <input style={{height : "70px"}} type="text" className="form-control" name="address" value={this.state.address} onChange={this.handleChange} placeholder="Type your Address" required="" />
+                    </div>
+                    <div className="form-group">
+                    <label>Name<span>*</span></label>
+                        <input style={{height : "70px"}} type="text" className="form-control" name="name" value={this.state.name} onChange={this.handleChange} placeholder="Type your full Name" required="" />
+                </div>
+                <div className="form-group">
+                    <label>Email<span>*</span></label>
+                        <input style={{height : "70px"}} type="text" className="form-control" name="email" value={this.state.email} onChange={this.handleChange} placeholder="Enter Your Email address" required=""/>
+                </div>
+                <div className="form-group">
+                    <label>Phone<span>*</span></label>
+                        <input style={{height : "70px"}} type="text" className="form-control" name="phone" value={this.state.phone} onChange={this.handleChange} placeholder="Enter Your Phone Number" required="" />
+                </div>
+                <div className="form-group">
+					<label>Price<span>*</span></label>
+          <input style={{height : "70px"}} type="text" className="form-control" name="price" value={this.state.price} onChange={this.handleChange} placeholder="Enter Price" required="" />
+					    {/* <select style={{height : "70px"}} className="form-control" name="pg_category" value={this.state.price} onChange={this.handleChange} required="">
+					        <option>Select Price</option>
+					        <option>1000 to 2000</option>
+					        <option>2000 to 4000</option>
+					        <option>5000 to more</option>
+					    </select> */}
+                    </div>
+                <div className="form-group">
+                    <label>Photos<span>*</span></label>
+                        <input style={{height : "70px"}} multiple type="file" className="form-control-file" name="photos" onChange={this.handleInputImage} placeholder="Enter Your Phone Number" required=""/>
+                </div>
+                <Button style={{marginTop : "-30px"}} onClick={this.uploadData} className="continue_btn float-right" variant="primary" >Submit</Button>   
+                </form>
+            </div>
+            <Footer />
+            </>
+    )
   }
-}
-
-render() {
-  return (
-    <MDBContainer>
-      <h2 className="text-center font-weight-bold pt-4 pb-5 mb-2"><strong>Registration form</strong></h2>
-        <MDBRow>
-          {this.state.formActivePanel1 === 1 &&
-          (<MDBCol md="12">
-            <h3 className="font-weight-bold pl-0 my-4">
-              <strong>Basic Information</strong></h3>
-            <MDBInput label="Email" className="mt-4" autoFocus={this.calculateAutofocus(1)} />
-            <MDBInput label="Username" className="mt-4" />
-            <MDBInput label="Password" className="mt-4" />
-            <MDBInput label="Repeat Password" className="mt-4" />
-            <MDBBtn color="mdb-color" rounded className="float-right bg-primary" onClick={this.handleNextPrevClick(1)(2)}>next</MDBBtn>
-          </MDBCol>)}
-
-          {this.state.formActivePanel1 === 2 &&
-          (<MDBCol md="12">
-            <h3 className="font-weight-bold pl-0 my-4"><strong>Personal Data</strong></h3>
-            <MDBInput label="First Name" className="mt-3" autoFocus={this.calculateAutofocus(1)} />
-            <MDBInput label="Second Name" className="mt-3" />
-            <MDBInput label="Surname" className="mt-3" />
-            <MDBInput label="Address" type="textarea" rows="2" />
-            <MDBBtn color="mdb-color" rounded className="float-left bg-primary" onClick={this.handleNextPrevClick(1)(1)}>previous</MDBBtn>
-            <MDBBtn color="mdb-color" rounded className="float-right bg-primary" onClick={this.handleNextPrevClick(1)(3)}>next</MDBBtn>
-          </MDBCol>)}
-
-          {this.state.formActivePanel1 === 3 &&
-          (<MDBCol md="12">
-            <h3 className="font-weight-bold pl-0 my-5"><strong>Terms and conditions</strong></h3>
-            <MDBInput label="I agreee to the terms and conditions" type="checkbox" id="checkbox" autoFocus={this.calculateAutofocus(1)} />
-            <MDBInput label="I want to receive newsletter" type="checkbox" id="checkbox2" />
-            <MDBBtn color="mdb-color" rounded className="float-left bg-primary" onClick={this.handleNextPrevClick(1)(2)}>previous</MDBBtn>
-            <MDBBtn color="mdb-color" rounded className="float-right bg-primary" onClick={this.handleNextPrevClick(1)(4)}>next</MDBBtn>
-          </MDBCol>)}
-
-          {this.state.formActivePanel1 === 4 &&
-          (<MDBCol md="12">
-            <h3 className="font-weight-bold pl-0 my-4"><strong>Finish</strong></h3>
-            <h2 className="text-center font-weight-bold my-4">Registration completed!</h2>
-            <MDBBtn color="mdb-color" rounded className="float-left bg-primary" onClick={this.handleNextPrevClick(1)(3)}>previous</MDBBtn>
-            <MDBBtn color="success" rounded className="float-right bg-primary" onClick={this.handleSubmission}>submit</MDBBtn>
-          </MDBCol>)}
-        </MDBRow>
-    </MDBContainer>
-    );
-  };
 }
 
 export default Postpg;
