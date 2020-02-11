@@ -1,6 +1,7 @@
 import React from 'react';
 // import Stepper from './components/Stepper';
 import Mainpage from './components/Mainpage';
+// import Postpglist from './components/Postpglist';
 // import Login from './components/Login';
 // import PhotoSearch from './components/PhotoSearch';
 // import FrontPage from './components/FrontPage';
@@ -17,6 +18,7 @@ function App() {
       {/* <Fileupload /> */}
       {/* <PhotoSearch /> */}
       {/* <Stepper /> */}
+      {/* <Postpglist /> */}
     </div>
   );
 }
