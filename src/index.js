@@ -12,6 +12,7 @@ import Postpgdetail3 from './components/PostPG/Postpgdetail3';
 import Complaint from './components/Complaint';
 import ContactUs from './components/ContactUs';
 import Postpg from './components/Postpg';
+import Searchdesign from './components/Search/Searchdesign';
 // import Stepper from './components/Stepper';
 
 ReactDOM.render(
@@ -26,6 +27,7 @@ ReactDOM.render(
                     <Route path="/postpgdetail1" component={PostpgDetail1} />
                     <Route path="/postpgdetail2" component={PostpgDetail2} />
                     <Route path="/postpgdetail3" component={Postpgdetail3} />
+                    <Route path="/searchdesign" component={Searchdesign} />
                     {/* <Route path="/stepper" component={Stepper} /> */}
                 </Switch>
             </Router>

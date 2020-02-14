@@ -18,12 +18,10 @@ class Mainpage extends Component {
                 <div className="main_container">
                 </div>
                 <Topbar />
-                {/* <hr className="pt-1" /> */}
                 <br />
                 <br />
                 <Search />
                 <br /><br />
-                {/* <hr className=""/> */}
                 <Slider />
                 <h1 className="text-center pt-5">Top Most PG in Jalandhar</h1>
                 <hr className="w-25 mx-auto pt-25 " />
@@ -36,9 +34,7 @@ class Mainpage extends Component {
                 <WhyUse />
                 <h1 className="text-center pt-5">Comments</h1>
                 <hr className="w-25 mx-auto pt-25 " />
-                <Coments />
-
-                
+                <Coments />                
                 <h1 className="text-center pt-5">Services</h1>
                 <hr className="w-25 mx-auto pt-25 " />
                 <Services />

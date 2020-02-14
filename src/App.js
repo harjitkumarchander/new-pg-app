@@ -1,6 +1,8 @@
 import React from 'react';
 // import Stepper from './components/Stepper';
 import Mainpage from './components/Mainpage';
+import Searchdesign from './components/Search/Searchdesign';
+import Searchlistfromapi from './components/Search/Searchlistfromapi';
 // import Postpglist from './components/Postpglist';
 // import Login from './components/Login';
 // import PhotoSearch from './components/PhotoSearch';
@@ -19,6 +21,8 @@ function App() {
       {/* <PhotoSearch /> */}
       {/* <Stepper /> */}
       {/* <Postpglist /> */}
+      {/* <Searchdesign /> */}
+      {/* <Searchlistfromapi /> */}
     </div>
   );
 }
