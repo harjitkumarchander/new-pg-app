@@ -9,19 +9,18 @@ import Coments from './Coments';
 import Footer from './Footer';
 import Toppg from './Toppg';
 import WhyUse from './WhyUse';
+// import Contries from '../components/Contries';
+// import ListPg from '../components/Search/ListPg';
 // import ChatBox from './ChatBox';
 
-class Mainpage extends Component {
+class Mainpage extends Component { 
     render() {
         return (
             <div style={{fontFamily:"Alfa Slab One"}}>
                 <div className="main_container">
                 </div>
                 <Topbar />
-                <br />
-                <br />
                 <Search />
-                <br /><br />
                 <Slider />
                 <h1 className="text-center pt-5">Top Most PG in Jalandhar</h1>
                 <hr className="w-25 mx-auto pt-25 " />

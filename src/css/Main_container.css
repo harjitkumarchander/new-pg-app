@@ -1,19 +1,10 @@
-.main_container{
+/* .main_container{
     width: 100%;
     height: 200%;
-    /* background: #ff6666; */
     position: absolute;
     text-align: center;
     top:0;
     left: 0;
-}
-.circle_img img{
-    width:150px;
-    height: 150px;
-    border-radius: 50%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
 }
 .front_container{
     width: 100%;
@@ -22,13 +13,6 @@
     background-image: url(../images/frontpage.jpg);
     background-size: 100% 100%
 }
-/* .postpgdetail1{
-    background-image: url("../images/formback1.png");
-    background-size: 100% 100%;
-} */
-/* body {
-    margin-top:40px;
-} */
 .stepwizard-step p {
     margin-top: 10px;
 }
@@ -52,7 +36,7 @@
     width: 100%;
     height: 1px;
     background-color: #ccc;
-    z-order: 0;
+    z-index: 0;
 }
 .stepwizard-step {
     display: table-cell;
@@ -209,7 +193,7 @@ h4.card-title {
     color: #9b9b9b
 }
 
-.media>* {
+.media {
     margin: 0 8px
 }
 
@@ -371,9 +355,30 @@ textarea {
 }
 
 .text-info {
-    color: #48b0f7 !important
+    color: #48b0f7
 }
 .row{
     margin-left : 0px;
     margin-right: 0px;
+}
+.searchcontainer{
+    width : 100%;
+    height : 100%;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+.sidebarcontainer{
+    width : 400px;
+    position: absolute;
+    margin-top: 100px;
+} */
+
+.circle_img img{
+    width:150px;
+    height: 150px;
+    border-radius: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }

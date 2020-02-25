@@ -19,17 +19,6 @@ class Login extends Component {
       })
     }
 
-    // componentDidMount(){
-    //   fetch('http://staging.nugen.co.in/api/v1/courses')
-    //   .then(res=> res.json())
-    //   .then((result)=> {
-    //     console.log(result)
-    //     this.setState({
-    //       user : result
-    //     })
-    //   })
-    // }
-
     loginApp(){
       fetch('http://staging.nugen.co.in/api/v1/login',{
         method : 'POST',
@@ -59,7 +48,7 @@ class Login extends Component {
         return (
           <>
           <Topbar />
-            <div style={{width : "450px", marginTop : "100px", marginBottom : "100px"}} className="container card-outline-secondary">
+            <div style={{width : "450px"}} className="container card-outline-secondary mt-5 mb-5">
               <div className="card">
 
                 <h5 className="card-header info-color white-text bg-primary text-center py-4">

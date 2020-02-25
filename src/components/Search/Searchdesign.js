@@ -1,22 +1,32 @@
-import React, { Component } from 'react'
-import Topbar from '../Topbar'
-import Search from '../Search'
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Topbar from '../Topbar';
+import Search from '../Search';
 import Footer from '../Footer';
 
 class Searchdesign extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      user1 : [],
+      user2 : [],
+      city : ''
+    }
+  }
+
     render() {
+      
         return (
-            <>
+            <div>
             <Topbar />
                 <br />
-                <Search />
+                
                 <br />
                 <br />
-            <div className=" row d-flex">
+            <div style={{fontFamily:"Alfa Slab One"}} className="container-fluid sidebarcontainer">
 
-                <div style={{marginLeft : "50px"}} className="col-md-3">
-                <div style={{border : "1px solid black", borderRadius : "10px" , width: "250px"}} className="btn-group">
+                <div style={{marginLeft : "60px",width : "350px", fontFamily:"Alfa Slab One"}} className="container postion-absolute">
+                <div style={{border : "1px solid black", borderRadius : "10px" , width: "250px"}} className="row btn-group">
                     <button className="btn  btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Stay Types</button>
                 <div style={{width : "250px"}} className="dropdown-menu">
                     <option>Hostels</option>
@@ -73,7 +83,8 @@ class Searchdesign extends Component {
                 </div>
                 </div>
                 </div>
-                <div className="searchdesign col md-9 row d-flex text-justify">
+
+                {/* <div className="searchdesign col md-10 row d-flex text-justify">
                 <div className="col-md-4 col-xs-12"> 
                     <img style={{height: "300px"}} className="card-img-top" src={require("../../images/city1.jpeg")} alt="Card cap" />
                     <div className="card-body">
@@ -124,10 +135,39 @@ class Searchdesign extends Component {
                     <Link to="/" href="#" className="btn btn-primary">Explore</Link>
                   </div>
                 </div>
-                </div>
+                </div> */}
+
+{/* {
+              this.state.user2.map((v,i)=>{
+                  let imageUrl = `http://whispering-refuge-34674.herokuapp.com/images/${v.image}`;
+                  return(
+                    <div className="text-justify" key={i}>
+                    <div style={{float: "left"}} className="card col-md-4">
+                                <img style={{height : "18rem"}} className="card-img-top" src={imageUrl} alt="Cardimage" />
+                                <div className="card-body">
+                                    <h5 className="card-title">{v.name}</h5>
+                                    <p className="card-text">Name :-{v.name}</p>
+                                    <p className="card-text">Address :- {v.address}</p>
+                                    <p className="card-text">City :- {v.city}</p>
+                                    <p className="card-text">State :- {v.state}</p>
+                                    <p className="card-text">Email :- {v.email}</p>
+                                    <p className="card-text">Phone :- {v.phone}</p>
+                                    <p className="card-text">Price :- {v.price}</p>
+                                </div>
+                            </div>
+                            </div>
+                  );
+
+                })
+              } */}
             </div>
+            <div className="searchcontainer">
+                <Search />
+                </div>
+            <br />
+            <br />
             <Footer />
-            </>
+            </div>
         )
     }
 }

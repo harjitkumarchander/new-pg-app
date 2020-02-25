@@ -28,6 +28,10 @@ class Register extends Component {
         return (
             <>
             <Topbar />
+            <br />
+                <br />
+                <br />
+                <br />
                     <div style={{fontFamily:"Alfa Slab One"}} className="container card card-outline-secondary mt-5 mb-5">
                         <div className="card-header">
                             <h3 className="mb-0 text-center">User Registration</h3>

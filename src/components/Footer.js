@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 class Footer extends Component {
     render() {
         return (
-            <div style={{fontFamily:"Alfa Slab One"}}>
+            <div className="container-fluid p-0" style={{fontFamily:"Alfa Slab One"}}>
 <footer className="page-footer bg-primary text-white font-small mdb-color pt-4">
 
   <div className="container text-center text-md-left">

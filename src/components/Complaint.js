@@ -19,45 +19,44 @@ export class Complaint extends Component {
         this.setState({
             [e.target.name] : e.target.value
         })
-        console.log(e.target.value)
     }
     render() {
         return (
             <div>
                 <Topbar />
-                <div style={{fontFamily:"Alfa Slab One"}} className="container card card-outline-secondary mt-5 mb-5">
-                        <div className="card-header">
+                <div style={{fontFamily:"Alfa Slab One", paddingLeft : "0", paddingRight : "0"}} className="col-md-5 col-sm-12 container card card-outline-primary mt-5 mb-5 d-flex">
+                        <div className="card-header bg-primary">
                             <h3 className="mb-0 text-center">Complaint Registration</h3>
                         </div>
                         <div className="card-body">
                             <form>
                                 <div className="form-group row">
                                     <label className="col-lg-3 col-form-label form-control-label">First name</label>
-                                    <div className="col-lg-9">
+                                    <div className="col-md-9 col-sm-12">
                                         <input className="form-control" type="text" name="firstname" value={this.state.firstname} onChange={this.handleChangeComplaint} placeholder="First Name" />
                                     </div>
                                 </div>
                                 <div className="form-group row">
                                     <label className="col-lg-3 col-form-label form-control-label">Last name</label>
-                                    <div className="col-lg-9">
+                                    <div className="col-md-9 col-sm-12">
                                         <input className="form-control" type="text" name="lastname" value={this.state.lastname} onChange={this.handleChangeComplaint} placeholder="Last Name" />
                                     </div>
                                 </div>
                                 <div className="form-group row">
                                     <label className="col-lg-3 col-form-label form-control-label">Email</label>
-                                    <div className="col-lg-9">
+                                    <div className="col-md-9 col-sm-12">
                                         <input className="form-control" type="email" name="email" value={this.state.email} onChange={this.handleChangeComplaint} placeholder="Email" />
                                     </div>
                                 </div>
                                 <div className="form-group row">
                                     <label className="col-lg-3 col-form-label form-control-label">Registration ID</label>
-                                    <div className="col-lg-9">
+                                    <div className="col-md-9 col-sm-12">
                                         <input className="form-control" type="email" name="resid" value={this.state.resid} onChange={this.handleChangeComplaint} placeholder="Registraion ID" />
                                     </div>
                                 </div>
                                 <div className="form-group row">
                                     <label className="col-lg-3 col-form-label form-control-label">Complaint Type</label>
-                                    <div className="col-lg-9">
+                                    <div className="col-md-9 col-sm-12">
                                         <select id="user_time_zone" className="form-control" name="comptype" value={this.state.comptype} onChange={this.handleChangeComplaint} size="0">
                                             <option>Select your Complaint</option>
                                             <option>Complaint</option>
@@ -71,14 +70,14 @@ export class Complaint extends Component {
                                 </div>
                                 <div className="form-group row">
                                     <label className="col-lg-3 col-form-label form-control-label">Complaint</label>
-                                    <div className="col-lg-9">
+                                    <div className="col-md-9 col-sm-12">
                                         <textarea className="form-control" type="text" name="complaint" value={this.state.complaint} onChange={this.handleChangeComplaint} placeholder="Complaint" />
                                     </div>
                                 </div>
                                 
                                 <div className="form-group row">
                                     <label className="col-lg-3 col-form-label form-control-label"></label>
-                                    <div className="col-lg-9">
+                                    <div className="col-md-6 col-sm-12">
                                         <input style={{marginRight : "10px"}} type="reset" className="btn btn-secondary" value="Cancel" />
                                         <input type="button" className="btn btn-primary" value="Save" />
                                     </div>

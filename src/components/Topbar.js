@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 class Topbar extends Component {
     render() {
         return (
             <>
-              <header style={{marginBottom : "0rem", marginTop : "0rem"}}>
-                <nav style={{padding: "0rem 0rem"}} className="navbar navbar-expand-lg navbar-light bg-primary">
+              <header className="container-fluid p-0 fixed-top">
+                <nav className="navbar navbar-expand-lg navbar-light bg-primary p-0">
                   <Link to="/" className="navbar-brand"><img style={{width: "200px", height : "80px"}} src={require("../images/logo1.png")} alt="logo"></img></Link>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                       <span className="navbar-toggler-icon"></span>
@@ -35,6 +35,7 @@ class Topbar extends Component {
                       </div>
                 </nav>
               </header> 
+              <div style={{height: '90px',  width: '100%'}}></div>
             </>
         )
     }

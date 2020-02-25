@@ -1,57 +1,117 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Loader from '../common/Loader';
+// import Searchdesign from './Search/Searchdesign';
+
+const demoImage = 'https://via.placeholder.com/450x350/';
+
+
 
 class Search extends Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
+
     this.state = {
-      search : ''
+      user1 : [],
+      user2 : [],
+      loader : false,
+      text : '',
+      suggestions : []
     }
   }
-  handleSearch = (e) => {
+
+  toggleLoader = () => {
     this.setState({
-      search : e.target.value
+      loader : !this.state.loader
     })
-    console.log(e.target.value);
   }
+
+  componentDidMount(){
+      this.toggleLoader()
+    fetch('http://whispering-refuge-34674.herokuapp.com/api/pg')
+    .then(res=>res.json())
+    .then(res=>{
+      let tempArr = []
+      for(let obj of res) {
+        if(obj.state !== undefined) {
+          tempArr.push(obj);
+        }
+      }
+      this.setState({
+        user1 : tempArr,
+        user2 : tempArr
+      },()=>{this.toggleLoader()})
+    })
+    .catch(error=>{
+      console.log('error while fetching', error);
+    })
+  }
+
+  handleSearch = (e) => {
+    let user2 = [];
+    for(const obj of this.state.user1){
+      let city = obj.city
+      if(e.target.value.toLowerCase() === city.substring(0, e.target.value.length)){
+
+        user2.push(obj)
+      }
+    }
+    this.setState({
+      user2
+    })
+  }
+  
+
     render() {
         return (
-            <div className="container">
-              <div style={{fontFamily:"Alfa Slab One"}} className="input-group input-group-lg">
-              <div class="dropdown">
-                <button type="button" class="btn border-white p-4 dropdown-toggle" data-toggle="dropdown">Top Cities</button>
-                <div class="dropdown-menu">
-                  <Link to="/searchdesign" class="dropdown-item" >Jalandhar</Link>
-                  <Link to="/searchdesign" class="dropdown-item" >Amritsar</Link>
-                  <Link to="/searchdesign" class="dropdown-item" >Chandigarh</Link>
+            <div className="container mt-5">
+
+              <Loader loader={this.state.loader} />
+              <div style={{fontFamily:"Alfa Slab One"}} className="input-group input-group-lg d-flex">
+              <div className="dropdown col-md-2 col-sm-12">
+                <button type="button" className="btn border-white p-4 dropdown-toggle" data-toggle="dropdown">Top Cities</button>
+                <div className="dropdown-menu">
+                  <Link to="/searchdesign" className="dropdown-item" >Jalandhar</Link>
+                  <Link to="/searchdesign" className="dropdown-item" >Amritsar</Link>
+                  <Link to="/searchdesign" className="dropdown-item" >Chandigarh</Link>
                 </div>
               </div>
 
-              <div class="dropdown">
-                <button type="button" class="btn border-white p-4 dropdown-toggle" data-toggle="dropdown">Rental Types</button>
-                <div class="dropdown-menu">
-                  <Link to="/searchdesign" class="dropdown-item" href="#">All</Link>
-                  <Link to="/searchdesign" class="dropdown-item" href="#">Boys/Men</Link>
-                  <Link to="/searchdesign" class="dropdown-item" href="#">Girls/Women</Link>
-                  <Link to="/searchdesign" class="dropdown-item" href="#">For Family</Link>
-                  <Link to="/searchdesign" class="dropdown-item" href="#">For Commercial</Link>
+              <div className="dropdown col-md-2 col-sm-12">
+                <button type="button" className="btn border-white p-4 dropdown-toggle" data-toggle="dropdown">Rental Types</button>
+                <div className="dropdown-menu">
+                  <Link to="/searchdesign" className="dropdown-item" href="#">All</Link>
+                  <Link to="/searchdesign" className="dropdown-item" href="#">Boys/Men</Link>
+                  <Link to="/searchdesign" className="dropdown-item" href="#">Girls/Women</Link>
+                  <Link to="/searchdesign" className="dropdown-item" href="#">For Family</Link>
+                  <Link to="/searchdesign" className="dropdown-item" href="#">For Commercial</Link>
                 </div>
               </div>
-
-
-                {/* <div className="dropdown">
-            <button className="btn btn-secondary btn-lg p-4 bg-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">City</button>
-            <select className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <Link to="/" className="dropdown-item">Jalandhar</Link>
-              <Link to="/" className="dropdown-item">Amritsar</Link>
-              <Link to="/" className="dropdown-item">Gurdaspur</Link>
-            </select>
-              </div> */}
-                <div className="input-group-prepend"></div>
-              <input style={{padding: "2.25rem 1rem", borderRadius : "5px", fontSize:"25px"}} type="text" value={this.state.search} onChange={this.handleSearch} className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" placeholder="Find Your Perfact PG" />
-              <button style={{width : "150px", fontSize : "30px"}} type="button" className="btn btn-secondary btn-lg bg-primary">Search</button>
+              <div className="col-md-8 col-sm-12 d-flex">
+              <input style={{padding: "2.25rem 1rem", borderRadius : "5px", fontSize:"25px"}} type="text" onChange={this.handleSearch} className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" placeholder="Find Your Perfact PG" />
+              <button style={{width : "150px", fontSize : "38px"}} type="button" onClick={this.handleClickSearch} className="btn btn-secondary btn-lg bg-primary mb-5">Search</button>
               </div>
-            </div>
+              </div>
+              <div className="row">
+              {
+                this.state.user2.map((v,i)=>{
+                  let imageUrl = `http://whispering-refuge-34674.herokuapp.com/images/${v.image}`;
+                  return(
+                    <div key={i} className="col-md-6">
+                        <div className="card d-flex justify-contet-center align-items-center">
+                          <img style={{height : "18rem", width : "25rem"}} className="d-flex" src={imageUrl} alt="Cardimage" onError={(e)=>{e.target.src=demoImage; e.target.onerror=null}}/>
+                          <div className="">
+                            <p className="card-text">Address :- {v.address}</p>
+                            <p className="card-text">City :- {v.city}</p>
+                            <p className="card-text">State :- {v.state}</p>
+                          </div>
+                        </div>
+                    </div>
+                  );
+                })
+              }
+              </div>
+            </div> 
         )
     }
 }
