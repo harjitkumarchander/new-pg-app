@@ -1,28 +1,74 @@
 import React, { Component } from 'react';
 class Searchlistfromapi extends Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
-            users : []
+            users : [],
+            text : '',
+            suggestions : []
         }
     }
 
-    handleClick = () => {
-        fetch('http://whispering-refuge-34674.herokuapp.com/api/pg')
-        .then(res=>res.json())
-        .then(res => {
-            this.setState({
-                users : res
-            })
-            console.log(res);
-        })
-        .catch(error=>{
-            console.log('error while fethching', error);
-        })
+    handleChange = (e) => {
+        const { items } = this.props;
+        const value = e.target.value;
+        let suggestions = [];
+        if(value.length > 0){
+            const regex = new RegExp(`^${value}`, 'i');
+            suggestions = items.sort().filter( v => regex.test(v));
+
+        }
+        this.setState(()=>({
+            suggestions, 
+            text: value
+        }))
+        console.log(items)
     }
+
+    suggestionSelected(value){
+        this.setState(()=>({
+            text : value,
+            suggestions : []
+        }))
+    }
+
+    renderSussetions(){
+        const {suggestions} = this.state;
+        if(suggestions.length === 0){
+            return null
+        }
+
+        return (
+            <ul>
+                {suggestions.map((item)=> <li onClick={()=>this.suggestionSelected(item)}>{item}</li>)}
+            </ul>
+        )
+    }
+
+    // handleClick = () => {
+    //     fetch('http://whispering-refuge-34674.herokuapp.com/api/pg')
+    //     .then(res=>res.json())
+    //     .then(res => {
+    //         let tempArr = []
+    //         for(const obj of res){
+    //             if(obj.state !== undefined){
+    //                 tempArr.push(obj)
+    //             }
+    //         }
+    //         this.setState({
+    //             users : tempArr
+    //         })
+    //         console.log(res);
+    //     })
+    //     .catch(error=>{
+    //         console.log('error while fethching', error);
+    //     })
+    // }
     render() {
         return (
             <div>
+                <input type="text" onChange={this.handleChange} />
+                {this.renderSussetions()}
                 <button onClick={this.handleClick}>Submit</button>
                 {
                     this.state.users.map((v,i)=>{

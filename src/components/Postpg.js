@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import 'react-toastify/dist/ReactToastify.css'; 
-import { Toast } from 'react-bootstrap';
+import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import Topbar from './Topbar';
@@ -20,7 +19,8 @@ class Postpg extends Component {
             email: '',
             phone: '',
             file: null,
-            imagePreviewUrl: ''
+            imagePreviewUrl: '',
+            emailError : ''
         }
     }
 
@@ -64,7 +64,6 @@ class Postpg extends Component {
           let {state, city, address, name, phone, price, file, email} = this.state;
           if(state===''){
               validated = false;
-            //   toast(state,{position:toast.POSITION.TOP_LEFT})
               toast.error('Please select State',{position:toast.POSITION.TOP_RIGHT});
           }
           else if(city === ''){
@@ -75,11 +74,11 @@ class Postpg extends Component {
             validated = false;
             toast.error('Type your name');
         }
-          else if(email === ''){
+          else if(email === '' || !email.includes('@') || !email.includes('.')){
             validated = false;
-            toast.error('FIll  your Email ID');
+            toast.error('Please fill your valid Email ID');
           }
-          else if(phone === ''){
+          else if(phone === '' || phone.length !== 10){
             validated = false;
             toast.error('Please fill your correct Mobile No.');
         }
@@ -93,9 +92,10 @@ class Postpg extends Component {
           }
           else if(file === null){
               validated = false;
-              toast.error('Select some Pics of your PG');
+              toast.error('Choose some Pics of your PG');
           }
           return validated;
+          
       }
     uploadData = () => {
        let validated = this.validate()
@@ -174,7 +174,7 @@ class Postpg extends Component {
 
             <div className="form-group">
                 <label>Phone<span>*</span></label>
-                <input style={{height : "70px"}} type="text" className="form-control" name="phone"
+                <input style={{height : "70px"}} type="number" className="form-control" name="phone"
                     value={this.state.phone} onChange={this.handleChange} placeholder="Enter Your Phone Number"
                     required="" />
             </div>
@@ -183,7 +183,7 @@ class Postpg extends Component {
 
                 <div className="form-group">
                     <label>Price<span>*</span></label>
-                    <input style={{height : "70px"}} type="text" className="form-control" name="price"
+                    <input style={{height : "70px"}} type="number" className="form-control" name="price"
                         value={this.state.price} onChange={this.handleChange} placeholder="Enter Price" required="" />
                 </div>
             </div>

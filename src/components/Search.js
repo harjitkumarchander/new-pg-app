@@ -5,8 +5,6 @@ import Loader from '../common/Loader';
 
 const demoImage = 'https://via.placeholder.com/450x350/';
 
-
-
 class Search extends Component {
   constructor(props){
     super(props);

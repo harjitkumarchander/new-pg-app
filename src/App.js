@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 // import Stepper from './components/Stepper';
 import Mainpage from './components/Mainpage';
 // import Searchdesign from './components/Search/Searchdesign';
@@ -11,8 +11,12 @@ import Mainpage from './components/Mainpage';
 // import FrontPage from './components/FrontPage';
 // import Fileupload from './components/Fileupload';
 // import Postpg from './components/Postpg';
+// import Contries from './components/Contries';
+// import Search from './components/Search';
 
-function App() {
+class App extends Component {
+
+render(){
   return (
     <div>
       {/* <FrontPage /> */}
@@ -24,11 +28,12 @@ function App() {
       {/* <Stepper /> */}
       {/* <Postpglist /> */}
       {/* <Searchdesign /> */}
+      {/* <Searchlistfromapi items = {Contries} /> */}
       {/* <Searchlistfromapi /> */}
       {/* <Tempsearch /> */}
       {/* <TempPagination /> */}
     </div>
   );
 }
-
+}
 export default App;
