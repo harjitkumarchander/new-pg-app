@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import Stepper from './components/Stepper';
 import Mainpage from './components/Mainpage';
-// import Searchdesign from './components/Search/Searchdesign';
+import Searchdesign from './components/Search/Searchdesign';
 // import TempPagination from './components/Search/Pagination/TempPagination';
 // import Searchlistfromapi from './components/Search/Searchlistfromapi';
 // import Postpglist from './components/Postpglist';

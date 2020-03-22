@@ -94,8 +94,9 @@ class Postpg extends Component {
               validated = false;
               toast.error('Choose some Pics of your PG');
           }
-          return validated;
-          
+          return validated ?
+          toast.success('Submitted Successfully')
+          : null
       }
     uploadData = () => {
        let validated = this.validate()
