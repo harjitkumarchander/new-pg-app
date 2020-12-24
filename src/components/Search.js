@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import Loader from '../common/Loader';
 
 const demoImage = 'https://via.placeholder.com/450x350/';
@@ -56,7 +56,7 @@ class Search extends Component {
       }
     }
     this.setState({
-      user2
+      user2,
     })
   }
 
@@ -66,11 +66,6 @@ class Search extends Component {
   })
  }
 
- handleList = () => {
-   this.setState({
-     user2 : []
-   })
- }
     render() {
       let filteredList = this.state.user2
 
@@ -170,8 +165,8 @@ class Search extends Component {
                     let imageUrl = `http://whispering-refuge-34674.herokuapp.com/images/${v.image}`;
                     return(
                 <ul key={i} className="list-group" id="selectList" >
-                  <div className="row" value={this.state.selectlist}>
-                    <li onClick={this.handleList} className="list-group-item p-0 d-flex" ><img src={imageUrl} alt="picImage" />
+                  <div className="row">
+                    <li className="list-group-item p-0 d-flex" ><img src={imageUrl} alt="picImage" />
                     <p className="ml-2 text-center">{v.city}</p>
                     </li>
                   </div>
@@ -179,11 +174,8 @@ class Search extends Component {
                     );
                   })
                 }
-
               </div>
-
               :null
-                
               }
 
               {/* Search result map */}

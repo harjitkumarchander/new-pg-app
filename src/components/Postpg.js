@@ -64,7 +64,7 @@ class Postpg extends Component {
           let {state, city, address, name, phone, price, file, email} = this.state;
           if(state===''){
               validated = false;
-              toast.error('Please select State',{position:toast.POSITION.TOP_RIGHT});
+              toast.error('Please select State');
           }
           else if(city === ''){
               validated = false;
